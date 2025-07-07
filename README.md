@@ -1,45 +1,58 @@
-# msdis-uploader
+# 📁 File Upload Component
 
-This template should help get you started developing with Vue 3 in Vite.
+## 🛠️ Технологии
 
-## Recommended IDE Setup
+- **Vue.js 3** (Composition API)
+- **TypeScript**
+- **CSS** (чистый, без UI-библиотек)
+- **Vite** (для сборки)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🎯 Цель
 
-## Type Support for `.vue` Imports in TS
+Создать универсальный, доступный и семантически корректный компонент загрузки файлов без использования готовых UI-библиотек. Компонент должен:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- Поддерживать загрузку одного/нескольких файлов.
+- Валидировать типы и размер файлов.
+- Обеспечивать интерактивность и обратную связь пользователю.
 
-## Customize configuration
+## 🚀 Запуск проекта
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+1. **Клонируйте репозиторий**:
+   ```bash
+   git clone https://github.com/your-username/file-upload-component.git
+   cd file-upload-component
+   ```
 
-## Project Setup
+Установите зависимости:
 
-```sh
-npm install
-```
+npm install (yarn или другие пакетные менеджеры)
 
-### Compile and Hot-Reload for Development
+Запустите dev-сервер:
 
-```sh
 npm run dev
+
+📝 Пример использования
+
 ```
+<script lang="ts" setup>
+import { ref } from 'vue'
 
-### Type-Check, Compile and Minify for Production
+const file = ref<File>()
+</script>
 
-```sh
-npm run build
-```
+<template>
+  <div class="centered">
+    <FileUploader v-model="file" label="Label" required />
+  </div>
+</template>
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+<style scoped>
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
 
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
