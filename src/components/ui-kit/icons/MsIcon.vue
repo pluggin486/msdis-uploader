@@ -1,7 +1,25 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 
-const props = withDefaults(defineProps<{}>(), {})
+const props = withDefaults(
+  defineProps<{
+    prefix: string
+    name: string
+    size?: string
+    color?: string
+  }>(),
+  {
+    size: 's',
+  },
+)
+
+const classes: Record<string, string> = {
+  s: 'svg-icon-s',
+  m: 'svg-icon-m',
+  l: 'svg-icon-l',
+  xl: 'svg-icon-xl',
+}
+
 const symbolId = computed(() => `#icon-${props.prefix}-${props.name}`)
 
 const className = computed(() => {
